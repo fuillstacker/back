@@ -1,8 +1,8 @@
 {
     "PORT": 8998,
     "secret_key": "SDSDVSEDRFGE%YY$%FSGERT",
-    "filePath": "E:\\server\\server\\files",
-    "staticPath": "E:\\server\\server\\static",
+    "filePath": "E:\\server\\files",
+    "staticPath": "E:\\server\\static",
     "dbUrl": "mongodb+srv://admin:adminadmin123@storage.axwrm72.mongodb.net/"
 }
   
