@@ -3,6 +3,6 @@
     "secret_key": "SDSDVSEDRFGE%YY$%FSGERT",
     "filePath": "E:\\server\\files",
     "staticPath": "E:\\server\\static",
-    "dbUrl": "mongodb+srv://pavlo:pavlopavlopavlo@str.6pgrxkt.mongodb.net/?retryWrites=true&w=majority&appName=str"
+    "dbUrl": "mongodb+srv://pavlo:pavlopavlopavlo@str.6pgrxkt.mongodb.net/str=true&w=majority&appName=str"
 }
   
