@@ -126,7 +126,7 @@ class FileController {
             await file.deleteOne()
             return res.json({ msg: 'File was deleted' })
         } catch (e) {
-            // console.log(e)
+            console.log(e)
             // return res.status(400).json({ msg: 'Dir is not empty' })
         }
     }
