@@ -125,11 +125,10 @@ class FileController {
             fileService.deleteFile(req, file)
             await file.deleteOne()
             return res.json({ msg: 'File was deleted' })
+        } catch (e) {
+            // console.log(e)
+            // return res.status(400).json({ msg: 'Dir is not empty' })
         }
-        // catch (e) {
-        //     console.log(e)
-        //     return res.status(400).json({ msg: 'Dir is not empty' })
-        // }
     }
 
     async search(req, res) {
