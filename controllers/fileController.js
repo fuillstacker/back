@@ -68,9 +68,9 @@ class FileController {
 
             let path;
             if (parent) {
-                path = `${req}\\${user._id}\\${parent.path}\\${file.name}`
+                path = `${req.filePath}\\${user._id}\\${parent.path}\\${file.name}`
             } else {
-                path = `${req}\\${user._id}\\${file.name}`
+                path = `${req.filePath}\\${user._id}\\${file.name}`
             }
 
             if (fs.existsSync(path)) {
