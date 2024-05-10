@@ -16,7 +16,7 @@ const User = new Schema({
         type: Number,
         default: 1024**3*10
     },
-    useSpace: {
+    usedSpace: {
         type: Number,
         default: 0
     },

@@ -45,11 +45,11 @@ router.post('/login',
             const { email, password } = req.body
             const user = await User.findOne({ email })
             if (!user) {
-                return res.status(404).json({ message: "User not found" })
+                return res.status(404).json({ msg: "User not found" })
             }
             const isPassValid = bcrypt.compareSync(password, user.password)
             if (!isPassValid) {
-                return res.status(400).json({ message: "Invalid password" })
+                return res.status(400).json({ msg: "Invalid password" })
             }
             const token = jwt.sign({ id: user.id }, config.get("secret_key"), { expiresIn: "1h" })
             return res.json({
@@ -58,7 +58,7 @@ router.post('/login',
                     id: user.id,
                     email: user.email,
                     diskSpace: user.diskSpace,
-                    usedSpace: user.useSpace, 
+                    usedSpace: user.usedSpace, 
                     avatar: user.avatar
                 }
             })
@@ -80,7 +80,7 @@ router.get('/auth', middlw, async (req, res) => {
                 id: user.id,
                 email: user.email,
                 diskSpace: user.diskSpace,
-                usedSpace: user.useSpace,
+                usedSpace: user.usedSpace,
                 avatar: user.avatar
             }
         })

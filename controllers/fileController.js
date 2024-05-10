@@ -60,11 +60,11 @@ class FileController {
             const parent = await File.findOne({ user: req.user.id, _id: req.body.parent })
             const user = await User.findOne({ _id: req.user.id })
 
-            if (user.useSpace + file.size > user.diskSpace) {
+            if (user.usedSpace + file.size > user.diskSpace) {
                 return res.status(400).json({ msg: 'There no space on the disk' })
             }
 
-            user.useSpace = user.useSpace + file.size
+            user.usedSpace = user.usedSpace + file.size
 
             let path;
             if (parent) {
@@ -127,7 +127,7 @@ class FileController {
             return res.json({ msg: 'File was deleted' })
         } catch (e) {
             console.log(e)
-            // return res.status(400).json({ msg: 'Dir is not empty' })
+            return res.status(400).json({ msg: e })
         }
     }
 
