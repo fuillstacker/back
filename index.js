@@ -13,9 +13,9 @@ const path = require('path')
 
 app.use(fileUpload({}))
 app.use(corsMiddleware)
+app.use(express.static('static'))
 app.use(filePathMiddleware(path.resolve(__dirname, 'files')))
 app.use(express.json({ limit: "3mb" }))
-app.use(express.static('static'))
 app.use('/api', authRouter) 
 app.use('/api/files', fileRouter)
 
