@@ -7,7 +7,7 @@ class FileService {
         const filePath =this.getPath(req, file)
         return new Promise((resolve, reject) => {
             // Перевірка доступності файлової системи або інших обмежень
-            if (!fs.existsSync(config.get('filePath'))) {
+            if (!fs.existsSync(this.getPath(req, files))) {
                 return reject({ msg: 'File path does not exist or is not accessible.' });
             }
 
