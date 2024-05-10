@@ -24,9 +24,9 @@ class FileService {
      deleteFile(req, file) {
         const path = this.getPath(req, file)
         if (file.type === 'dir') {
-            fs.rmdirSync(path)
+            fs.rmdirSync(req, path)
         } else {
-            fs.unlinkSync(path)
+            fs.unlinkSync(req, path)
         }
     }
 
