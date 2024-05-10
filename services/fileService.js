@@ -4,7 +4,7 @@ const config = require('config');
 
 class FileService {
     createDir(req, file) {
-        const filePath = getPath(req, file)
+        const filePath = this.getPath(req, file)
         return new Promise((resolve, reject) => {
 
             try {
@@ -22,7 +22,7 @@ class FileService {
     }
 
      deleteFile(req, file) {
-        const path = getPath(req, file)
+        const path = this.getPath(req, file)
         if (file.type === 'dir') {
             fs.rmdirSync(path)
         } else {
