@@ -6,10 +6,6 @@ class FileService {
     createDir(req, file) {
         const filePath =this.getPath(req, file)
         return new Promise((resolve, reject) => {
-            // Перевірка доступності файлової системи або інших обмежень
-            if (!fs.existsSync(this.getPath(req, file))) {
-                return reject({ msg: 'File path does not exist or is not accessible.' });
-            }
 
             try {
                 if (!fs.existsSync(filePath)) {
