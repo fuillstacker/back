@@ -8,10 +8,12 @@ const fileUpload = require('express-fileupload')
 const PORT = config.get('PORT') 
 const mongoose = require('mongoose')
 const corsMiddleware = require('./middleware/cors.middleware')
-
+const filePathMiddleware = require('./middleware/file.middleware')
+const path = require('path')
 
 app.use(fileUpload({}))
 app.use(corsMiddleware)
+app.use(filePathMiddleware(path.resolve(__dirname, 'files')))
 app.use(express.json({ limit: "3mb" }))
 app.use(express.static('static'))
 app.use('/api', authRouter) 

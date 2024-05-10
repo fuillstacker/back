@@ -14,10 +14,10 @@ class FileController {
             const parrentFile = await File.findOne({ _id: parent })
             if (!parrentFile) {
                 file.path = name
-                await fileService.createDir(file)
+                await fileService.createDir(req, file)
             } else {
                 file.path = `${parrentFile.path}\\${file.name}`
-                await fileService.createDir(file)
+                await fileService.createDir(req, file)
                 parrentFile.childs.push(file.id)
                 await parrentFile.save()
             }
@@ -68,9 +68,9 @@ class FileController {
 
             let path;
             if (parent) {
-                path = `${config.get('filePath')}\\${user._id}\\${parent.path}\\${file.name}`
+                path = `${req}\\${user._id}\\${parent.path}\\${file.name}`
             } else {
-                path = `${config.get('filePath')}\\${user._id}\\${file.name}`
+                path = `${req}\\${user._id}\\${file.name}`
             }
 
             if (fs.existsSync(path)) {
@@ -88,7 +88,7 @@ class FileController {
                 type,
                 size: file.size,
                 path: filePath,
-                parent: parent?._id,
+                parent: parent ? parent._id : null,
                 user: user._id
             });
 
@@ -105,7 +105,7 @@ class FileController {
     async downloadFile(req, res) {
         try {
             const file = await File.findOne({ _id: req.query.id, user: req.user.id })
-            const path = fileService.getPath(file)
+            const path = fileService.getPath(req, file)
             if (fs.existsSync(path)) {
                 return res.download(path, file.name)
             }
@@ -122,7 +122,7 @@ class FileController {
             if (!file) {
                 return res.status(400).json({ message: 'file not found' })
             }
-            fileService.deleteFile(file)
+            fileService.deleteFile(req, file)
             await file.deleteOne()
             return res.json({ msg: 'File was deleted' })
         } catch (e) {
