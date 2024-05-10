@@ -3,5 +3,5 @@
     "secret_key": "SDSDVSEDRFGE%YY$%FSGERT",
     "filePath": "E:\\server\\files",
     "staticPath": "E:\\server\\static",
-    "dbUrl": "mongodb+srv://pavlo:pavpavpav@cloud.igq0vzf.mongodb.net/?retryWrites=true&w=majority&appName=cloud"
+    "dbUrl": "mongodb+srv://admin:adminadmin12@storage.axwrm72.mongodb.net/?retryWrites=true&w=majority&appName=storage"
 }
