@@ -1,7 +1,7 @@
 {
     "PORT": 8998,
     "secret_key": "SDSDVSEDRFGE%YY$%FSGERT",
-    "filePath": "E://server//files",
-    "staticPath": "E://server//static",
+    "filePath": "E:\\server\\files",
+    "staticPath": "E:\\server\\static",
     "dbUrl": "mongodb+srv://pavlo:pavpavpav@cloud.igq0vzf.mongodb.net/?retryWrites=true&w=majority&appName=cloud"
 }
