@@ -3,5 +3,5 @@
     "secret_key": "SDSDVSEDRFGE%YY$%FSGERT",
     "filePath": "E:\\server\\files",
     "staticPath": "E:\\server\\static",
-    "dbUrl": "mongodb+srv://admin:adminadmin123@storage.axwrm72.mongodb.net/?retryWrites=true&w=majority&appName=storage"
+    "dbUrl": "mongodb+srv://admin:admin@storage.axwrm72.mongodb.net/?retryWrites=true&w=majority&appName=storage"
 }
