@@ -120,7 +120,7 @@ class FileController {
         try {
             const file = await File.findOne({ _id: req.query.id, user: req.user.id })
             if (!file) {
-                return res.status(400).json({ message: 'file not found' })
+                return res.status(400).json({ msg: 'file not found' })
             }
             fileService.deleteFile(req, file)
             await file.deleteOne()
@@ -155,7 +155,7 @@ class FileController {
             return res.json(user)
         } catch (e) {
             console.log(e)
-            return res.status(400).json({message: 'Upload avatar error'})
+            return res.status(400).json({msg: 'Upload avatar error'})
         }
     }
 
@@ -168,7 +168,7 @@ class FileController {
             return res.json(user)
         } catch (e) {
             console.log(e)
-            return res.status(400).json({message: 'Delete avatar error'})
+            return res.status(400).json({msg: 'Delete avatar error'})
         }
     }
 }
