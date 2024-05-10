@@ -1,6 +1,7 @@
 const fs = require('fs');
 const File = require('../models/File');
 const config = require('config');
+const filePath = require('../middleware/file.middleware')
 
 class FileService {
     createDir(req, file) {
