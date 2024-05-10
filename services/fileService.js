@@ -20,9 +20,6 @@ class FileService {
 
         });
     }
-    getPath(req, file) {
-        return req.filePath + '\\' + file.user + '\\' + file.path
-    }
 
      deleteFile(req, file) {
         const path = getPath(req, file)
@@ -31,6 +28,10 @@ class FileService {
         } else {
             fs.unlinkSync(path)
         }
+    }
+
+    getPath(req, file) {
+        return req.filePath + '\\' + file.user + '\\' + file.path
     }
 }
 
